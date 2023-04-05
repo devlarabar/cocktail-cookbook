@@ -1,0 +1,90 @@
+/******************************************
+/* CSS
+/*******************************************/
+
+/* Box Model Hack */
+*{
+  box-sizing: border-box;
+}
+
+/******************************************
+/* LAYOUT
+/*******************************************/
+html {
+  font-size: 10px;
+}
+body {
+  background: linear-gradient(to right, rgb(255, 186, 207), rgb(255, 210, 181));
+  color: #777;
+  line-height: 1.5;
+  font: 1.5rem "Roboto Condensed", sans-serif;
+}
+main {
+  width: 500px;
+  padding: 20px;
+  background: #fff;
+  margin: 20px auto;
+  border-radius: 10px;
+  box-shadow: 2px 2px 8px rgba(47, 47, 47, 0.2);
+}
+form {
+  display: block;
+  margin: 10px auto;
+}
+input[type="text"] {
+  width: 200px;
+  display: block;
+  margin: 3px auto;
+  font-family: "Rajdhani", sans-serif;
+}
+button {
+  border: 0;
+  background: salmon;
+  color: #fff;
+  width: 200px;
+  border-radius: 3px;
+  font: 1.3rem "Rajdhani", sans-serif;
+  text-transform: uppercase;
+  padding: 4px;
+  display: block;
+  margin: 3px auto;
+  transition: 0.07s ease-in-out;
+}
+button:hover {
+  background: pink;
+}
+button:active {
+  background: rgb(255, 85, 85);
+}
+h1 {
+  font-size: 2rem;
+  display: block;
+  margin: auto;
+  text-align: center;
+}
+h2 {
+  font-size: 1.8rem;
+  display: block;
+  margin: 10px auto;
+  text-align: left;
+  border-bottom: 2px solid #ddd;
+}
+h3 {
+  display: block;
+  margin: 10px auto;
+  font-size: 1.7rem;
+}
+
+img{
+  display: block;
+  margin: 10px auto;
+  width: 300px;
+}
+.ingList {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+/******************************************
+/* ADDITIONAL STYLES
+/*******************************************/
