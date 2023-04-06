@@ -5,31 +5,74 @@
     	<meta name="description" content="This is where your description goes">
     	<meta name="keywords" content="one, two, three">
 
-		<title>Girls Night In | A Cocktail Cookbook</title>
+		<title>Girls Night In | The Cocktail Cookbook</title>
 		<link rel="icon" href="https://www.pngarts.com/files/3/Cocktail-PNG-Free-Download.png">
 
 		<!-- external CSS link -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Amatic+SC&family=Chewy&family=Lato:wght@100;300;400;700&family=Rajdhani&family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&family=Nothing+You+Could+Do&family=Roboto+Condensed:wght@300&family=Roboto+Serif:ital@0;1&family=Roboto:wght@300&display=swap" rel="stylesheet">
+		<script src="https://kit.fontawesome.com/ce6dc40760.js" crossorigin="anonymous"></script>
 		<link rel="stylesheet" href="css/reset.css">
 		<link rel="stylesheet" href="css/style.css">
 	</head>
 	<body>
-
+		
+		<header class="flex">
+			<div class="title">
+				<h1>Girls Night In</h1>
+				<span class="tagline">The Cocktail Cookbook</span>
+			</div>
+			<section class="searchForm flex" id="search">
+				<label for="input">Search a cocktail:</label><input type="text" name="" value="" id="input">
+				<button type="button" name="button" id="submit">Get Cocktail</button>
+				<button type="button" name="button" id="clear">Clear</button>
+			</section>
+		</header>
 		<main>
-		<h1>Which Cocktail?</h1>
-		<input type="text" name="" value="" id="input">
-		<button type="button" name="button" id="submit">Get Cocktail</button>
-		<button type="button" name="button" id="clear">Clear</button>
+			
+			<section class="content popularBeverages">
+				<h2>Popular Cocktails</h2>
+				<span class="tagline">Discover variations on some of your favorite cocktails</span>
+				<ul class="flex">
+					<li><img src="assets/margarita.jpg" id="margarita" alt="Margarita"><span>Maragita</span></li>
+					<li><img src="assets/sangria.jpg" id="sangria" alt="Sangria"><span>Sangria</span></li>
+					<li><img src="assets/daiquiri.jpg" id="daiquiri" alt="Daiquiri"><span>Daiquiri</span></li>
+					<li><img src="assets/irish-coffee2.jpg" id="coffee" alt="Coffee"><span>Coffee</span></li>
+			</section>
+			<section class="content intro flex">
+				<section class="about" id="about">
+					<h3>About Girls Night In: The Cocktail Cookbook</h3>
+					<p>At <i>Girls Night In</i>, you can browse through hundreds of delicious cocktail recipes. Find the perfect cocktail for a fun night in with friends! Or, find great mixes for parties, or even the perfect drink for a quiet, relaxing evening at home.</p>
+					<p>Enter a cocktail into the search bar above, and a list of related cocktails will appear, along with their ingredients and recipes!</p>
+				</section>
+			</section>
+
+			<section class="content cocktailContent">
+					<div id="cocktailInfo">
+						<span class="promptSearch">What are you waiting for? <a href="#search">Search</a> for your favorite cocktail!</span>
+					</div>
+			</section>
+			</section>
 
 		<!-- <h2>Name</h2>
 		<img src="" alt="">
 		<h3>Instructions</h3>
 		<div class="instr"></div> -->
-		<div id="cocktailInfo">
-		</div>
 		</main>
-
+		<footer class="flex">
+			<section class="logoContainer">
+				<a href="https://github.com/devlarabar/cocktail-cookbook"><i class="fa-brands fa-github"></i></a> &nbsp;
+				<span class="logo">Girls Night In</span> 2023
+			</section>
+			<section class="credits">
+				<ul>
+					<li>Header & "About" Background Images by <a href="https://unsplash.com/@gbyz13">Gaby Yerden</a></li>
+					<li>Featured Cocktails Images by <a href="https://unsplash.com/@tatdot">Olha Tatdot</a>, <a href="https://unsplash.com/@amandavickcreative">Amanda Vick</a>, <a href="https://unsplash.com/@messyhairandplants">Maria Georgieva</a>, & <a href="https://unsplash.com/@misunderstoodwhiskey">Misunderstood Whiskey</a></li>
+					<li>Data from the <a href="https://www.thecocktaildb.com/api.php">Cocktail DB</a></li>
+				</ul>
+			</section>
+		</footer>
 		<script type="text/javascript" src="js/main.js"></script>
 	</body>
 </html>

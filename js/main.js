@@ -39,37 +39,72 @@
 const submit = document.querySelector('#submit')
 submit.addEventListener('click', ins)
 
+//popular drinks onClick
+const popularDrinks = Array.from(document.querySelectorAll('.popularBeverages img'))
+popularDrinks.forEach((x, i) => {
+    x.addEventListener('click', () => {
+        const searchBar = document.querySelector('#input')
+        searchBar.value = x.id
+        ins()
+    })
+})
+
 function ins() {
     const input = document.querySelector('#input').value 
-    document.querySelector('#cocktailInfo').innerHTML = ''
     if (input !== '') {
+        document.querySelector('#cocktailInfo').innerHTML = ''
         fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${input}`) 
         .then(res => res.json())
         .then(data => {
-            for (let i = 0; i < data.drinks.length; i++) {
-                if (data.drinks == null || data.drinks == undefined) {
-                    document.querySelector('#cocktailInfo').innerHTML += 'Not found.'
-                } else {
-                    console.log(data)
+            console.log(data)
+
+            if (data.drinks == null || data.drinks == undefined) {
+                document.querySelector('#cocktailInfo').innerHTML = `<p class="err">Not found.</p>`
+            } 
+            
+            else {
+                document.querySelector('#cocktailInfo').innerHTML = `
+                <h2>${input}</h2>
+                <span class="tagline">Showing Recipes</span>
+                `
+                // .map(x => `<li>${x}</li>`)
+                // .map(x => `<li>${x}</li>`)
+
+                for (let i = 0; i < data.drinks.length; i++) {
+                    //put ingredients into an array, filter out null
                     let ingredients = [data.drinks[i].strIngredient1, data.drinks[i].strIngredient2, data.drinks[i].strIngredient3, data.drinks[i].strIngredient4, data.drinks[i].strIngredient5, data.drinks[i].strIngredient6, data.drinks[i].strIngredient7, data.drinks[i].strIngredient8, data.drinks[i].strIngredient9, data.drinks[i].strIngredient10, data.drinks[i].strIngredient11, data.drinks[i].strIngredient12, data.drinks[i].strIngredient13, data.drinks[i].strIngredient14, data.drinks[i].strIngredient15].filter(x => x != null)
-                    console.log(ingredients)
+
+                    //put ingredient amounts into an array, filter out null
+                    let ingredientMeasures = [data.drinks[i].strMeasure1, data.drinks[i].strMeasure2, data.drinks[i].strMeasure3, data.drinks[i].strMeasure4, data.drinks[i].strMeasure5, data.drinks[i].strMeasure6, data.drinks[i].strMeasure7, data.drinks[i].strMeasure8, data.drinks[i].strMeasure9, data.drinks[i].strMeasure10, data.drinks[i].strMeasure11, data.drinks[i].strMeasure12, data.drinks[i].strMeasure13, data.drinks[i].strMeasure14, data.drinks[i].strMeasure15].filter(x => x != null)
+
+                    //combine ingredients and amounts into one array, turn them into list items, join
+                    let ingredientsAndMeasures = ingredients.map((x, i) => `<li>${x} - ${ingredientMeasures[i]}</li>`).join('')
+
+                    //insert info into the DOM
                     document.querySelector('#cocktailInfo').innerHTML += `
-                    <h2>${data.drinks[i].strDrink}</h2>
-                    <img src="${data.drinks[i].strDrinkThumb}">
-                    <div class="ingList">Ingredients: ${ingredients}</div>
+                    <div class="drinkBlock">
+                    <img src="${data.drinks[i].strDrinkThumb}" class="drinkImg">
+                    <div class="drinkInfo">
+                    <h3>${data.drinks[i].strDrink}</h3>
+                    <div class="ingList">Ingredients: <ul class="flex">${ingredientsAndMeasures}</ul></div>
                     <div class="instr">${data.drinks[i].strInstructions}</div>
-                    `
+                    </div>
+                    </div>`
                 }
+
+                document.querySelector('#cocktailInfo').scrollIntoView()
             }
         })
         .catch(err => console.log(`error: ${err}`))
     }
 }
 
+//clear button
 const clear = document.querySelector('#clear')
+const promptSearch = document.querySelector('.promptSearch').innerHTML
 clear.addEventListener('click', clearAllFields)
 
 function clearAllFields() {
     document.querySelector('#input').value = ''
-    document.querySelector('#cocktailInfo').innerHTML = ''
+    document.querySelector('#cocktailInfo').innerHTML = `<span class="promptSearch">${promptSearch}</span>`
 }
