@@ -38,13 +38,13 @@ body {
 header {
   width: 100%;
   height: 66vh;
-  padding: 50px 15%;
+  padding: 0;
   background: url('../assets/rose-cocktail.jpg');
   background-size: cover;
   background-position: center;
   margin: 0;
   justify-content: center;
-  align-items: center;
+  align-content: space-between;
   position: relative;
 }
 .title {
@@ -52,6 +52,27 @@ header {
   padding: 40px 60px;
   margin: 0 auto;
   background: rgba(41, 10, 0, 0.4);
+}
+/******************************************
+/* NAV
+/*******************************************/
+nav {
+  width: 100%;
+  justify-content: flex-end;
+  gap: 35px;
+  align-items: center;
+  padding: 20px 20px 0 20px;
+  color: #fff;
+}
+nav ul {
+  gap: 35px;
+}
+nav a:link, nav a:active, nav a:visited {
+  color: #fff;
+  padding-bottom: 3px;
+}
+nav a:hover {
+  border-bottom: 2px solid #fff;
 }
 /******************************************
 /* MAIN
@@ -88,7 +109,6 @@ a:hover {
   justify-content: space-between;
   align-items: center;
   gap: 1%;
-  position: absolute;
   bottom: 0;
   left: 0;
 }
