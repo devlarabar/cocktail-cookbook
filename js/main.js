@@ -63,9 +63,15 @@ function ins() {
             } 
             
             else {
+                const liveSearchContainer = `
+                <section class="liveSearchContainer">
+                    <label for="liveSearch">Filter</label>
+                    <input type="search" oninput="liveSearch()" id="liveSearch" placeholder="Filter your results!">
+                </section>`
                 document.querySelector('#cocktailInfo').innerHTML = `
                 <h2>${input}</h2>
                 <span class="tagline">Showing Recipes</span>
+                ${liveSearchContainer}
                 `
                 // .map(x => `<li>${x}</li>`)
                 // .map(x => `<li>${x}</li>`)
@@ -108,3 +114,25 @@ function clearAllFields() {
     document.querySelector('#input').value = ''
     document.querySelector('#cocktailInfo').innerHTML = `<span class="promptSearch">${promptSearch}</span>`
 }
+
+
+//live search
+function liveSearch() {
+    // Locate the card elements
+    let cards = document.querySelectorAll('.drinkBlock')
+    // Locate the search input
+    let search_query = document.getElementById("liveSearch").value;
+    // Loop through the cards
+    for (let i = 0; i < cards.length; i++) {
+      // If the text is within the card...
+      if(cards[i].innerHTML.toLowerCase()
+        // ...and the text matches the search query...
+        .includes(search_query.toLowerCase())) {
+          // ...remove the `.is-hidden` class.
+          cards[i].classList.remove("is-hidden");
+      } else {
+        // Otherwise, add the class.
+        cards[i].classList.add("is-hidden");
+      }
+    }
+  }
