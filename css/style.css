@@ -361,12 +361,12 @@ footer ul {
 
 
 
-.liveSearchContainer {
+.liveFilterContainer {
   display: block;
   width: 100%;
   padding: 20px 0;
 }
-.liveSearchContainer label {
+.liveFilterContainer label {
   color: var(--primary-text-color);
   margin: auto;
   text-align: center;
@@ -376,7 +376,9 @@ input[type="search"] {
   max-width: 400px;
   margin: auto;
 }
-.is-hidden { display: none; }
+.is-hidden {
+  display: none;
+}
 /******************************************
 /* KEYFRAMES
 /*******************************************/
